@@ -7,33 +7,23 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/loginSignUpStyle.css" />
 
-    <title>B7Store - Login</title>
+    <title>B7Store - Esqueci minha senha</title>
 </head>
 
 <body>
-    <a href="index.html" class="back-button">← Voltar</a>
+    <a href="{{ route('login') }}" class="back-button">← Voltar</a>
     <div class="login-page">
         <div class="login-area">
             <h3 class="login-title">B7Store</h3>
             <div class="text-login">
-                Use as suas credenciais para realizar o Login.
+                Preencha os campos abaixo para recuperar sua senha.
             </div>
             <form>
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
                     <input type="email" placeholder="Digite o seu e-mail" />
                 </div>
-                <div class="password-area">
-                    <div class="password-label">
-                        <div class="password-area-text">Senha</div>
-                        <a href="{{ route('forgot-password') }}" class="password-area-forgot">Esqueceu sua senha?</a>
-                    </div>
-                    <div class="password-input-area">
-                        <input type="password" placeholder="Digite a sua senha" />
-                        <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
-                    </div>
-                </div>
-                <button class="login-button">Entrar</button>
+                <button class="login-button">Recuperar Senha</button>
             </form>
             <div class="register-area">
                 Ainda não tem cadastro? <a href="{{ route('register') }}">Cadastre-se</a>
