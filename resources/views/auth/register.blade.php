@@ -18,19 +18,37 @@
             <div class="text-login">
                 Preencha os campos abaixo e realize seu cadastro.
             </div>
-            <form>
+            <form method="POST" action="{{ route('register_action') }}">
+                @csrf
+                <div>
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $erro)
+                                <li>{{ $erro }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+
                 <div class="name-area">
                     <div class="name-label">Nome</div>
-                    <input type="text" placeholder="Digite o seu nome" />
+                    <input type="text" name="name" placeholder="Digite o seu nome" />
                 </div>
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
-                    <input type="email" placeholder="Digite o seu e-mail" />
+                    <input type="email" name="email" placeholder="Digite o seu e-mail" />
                 </div>
                 <div class="password-area">
                     <div class="password-label">Senha</div>
                     <div class="password-input-area">
-                        <input type="password" placeholder="Digite a sua senha" />
+                        <input type="password" name="password" placeholder="Digite a sua senha" />
+                        <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
+                    </div>
+                </div>
+                <div class="password-area">
+                    <div class="password-label">Confirme sua senha</div>
+                    <div class="password-input-area">
+                        <input type="password" name="password_confirmation" placeholder="Digite a sua senha" />
                         <img src="assets/icons/eyeIcon.png" alt="Ícone mostrar senha" />
                     </div>
                 </div>
