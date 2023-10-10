@@ -50,7 +50,7 @@
 .login-area {
   width: 100%;
   max-width: 640px;
-  height: 700px;
+  padding-bottom: 20px;
   border: 1px solid #e7e9ed;
   display: flex;
   flex-direction: column;
