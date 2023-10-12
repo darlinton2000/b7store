@@ -32,3 +32,5 @@ Route::get('/forgot-password', function () {
 Route::get('/select-state', function () {
     return view('auth.select-state');
 })->name('select-state');
+
+Route::post('/select-state', [AuthController::class, 'state_action'])->name('state_action');
