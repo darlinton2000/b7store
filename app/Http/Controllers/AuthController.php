@@ -41,6 +41,16 @@ class AuthController extends Controller
 
     public function select_state_action(Request $request)
     {
-        dd($request);
+        $data = $request->only(['state']);
+        $stateRegister = State::find($data['state']);
+
+        if (!$stateRegister) {
+            return redirect('/login');
+        }
+
+        $user = Auth::user();
+        $user->state_id = $stateRegister->id;
+        $user->save();
+        return redirect()->route('home');
     }
 }
