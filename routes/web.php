@@ -28,3 +28,7 @@ Route::get('/login', function () {
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->name('forgot-password');
+
+Route::get('/select-state', function () {
+    return view('auth.select-state');
+})->name('select-state');
