@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Models\State;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +29,17 @@ class AuthController extends Controller
     }
 
     public function state_action(Request $request)
+    {
+        dd($request);
+    }
+
+    public function select_state()
+    {
+        $data['states'] = State::all();
+        return view('auth.select-state', $data);
+    }
+
+    public function select_state_action(Request $request)
     {
         dd($request);
     }

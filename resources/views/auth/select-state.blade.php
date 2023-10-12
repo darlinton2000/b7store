@@ -14,12 +14,14 @@
     <div class="login-page">
         <div class="login-area">
             <h3 class="login-title">B7Store</h3>
-            <form method="POST" action="{{ route('state_action') }}">
+            <form method="POST" action="{{ route('select_state_action') }}">
                 @csrf
                 <div class="state-area">
                     <div class="state-label">Selecione o seu estado</div>
                     <select name="state">
-                        <option value="RJ">Rio de Janeiro</option>
+                        @foreach ($states as $state)
+                            <option value="{{ $state->id }}">{{ $state->name }}/option>
+                        @endforeach
                     </select>
                     @error('name')
                         <div class="error">
