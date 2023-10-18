@@ -13,11 +13,22 @@ use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller
 {
+    /**
+     * Exibe a view de registrar
+     *
+     * @return view
+     */
     public function register() 
     {
         return view('auth.register');
     }
 
+    /**
+     * Recebe o dados do formulário registrar, cria o usuário e redireciona para selecionar o estado
+     *
+     * @param RegisterRequest $request
+     * @return void
+     */
     public function register_action(RegisterRequest $request)
     {
         $userData = $request->only(['name', 'email', 'password']);
@@ -29,6 +40,11 @@ class AuthController extends Controller
         return redirect()->route('select-state');
     }
 
+    /**
+     * Exibe a view de selecionar o estado
+     *
+     * @return view
+     */
     public function select_state()
     {
         $data['states'] = State::all();
@@ -36,6 +52,12 @@ class AuthController extends Controller
         return view('auth.select-state', $data);
     }
 
+    /**
+     * Recebe os dados do formulário, salva o estado do usuário no BD e redireciona para a home
+     *
+     * @param SelectStateRequest $request
+     * @return void
+     */
     public function select_state_action(SelectStateRequest $request)
     {
         $data = $request->only(['state']);
@@ -52,6 +74,12 @@ class AuthController extends Controller
         return redirect()->route('home');
     }
 
+    /**
+     * Recebe os dados o formulário, verifica se o usuário está autênticado e redireciona para a home
+     *
+     * @param LoginRequest $request
+     * @return void
+     */
     public function login_action(LoginRequest $request)
     {   
         $loginData = $request->only(['email', 'password']);
