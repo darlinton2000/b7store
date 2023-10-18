@@ -88,6 +88,7 @@ form {
   line-height: normal;
 }
 .name-area input,
+.state-area select,
 .email-area input,
 .password-input-area input {
   width: 100%;
@@ -101,6 +102,9 @@ form {
   outline: 0;
 }
 .email-area {
+  margin-top: 24px;
+}
+.state-area {
   margin-top: 24px;
 }
 .password-label {

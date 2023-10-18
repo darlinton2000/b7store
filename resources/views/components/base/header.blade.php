@@ -5,7 +5,7 @@
             @if (Auth::check())
                 <a href="login.html" class="my-account">
                     <img src="assets/icons/userIcon.png" />
-                    Minha Conta - {{ Auth::user()->name() }}
+                    Minha Conta - {{ Auth::user()->name }}
                 </a>
             @else
                 <a href="{{ route('login') }}" class="my-account">

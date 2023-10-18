@@ -16,14 +16,15 @@
             <h3 class="login-title">B7Store</h3>
             <form method="POST" action="{{ route('select_state_action') }}">
                 @csrf
+
                 <div class="state-area">
                     <div class="state-label">Selecione o seu estado</div>
                     <select name="state">
                         @foreach ($states as $state)
-                            <option value="{{ $state->id }}">{{ $state->name }}/option>
+                            <option value="{{ $state->id }}">{{ $state->name }}</option>
                         @endforeach
                     </select>
-                    @error('name')
+                    @error('state')
                         <div class="error">
                             {{ $message }}
                         </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\SelectStateRequest;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -23,23 +25,18 @@ class AuthController extends Controller
         $user = User::create($userData);
 
         Auth::loginUsingId($user->id);
-        return redirect()->route('select-state');
-        
-        dd($user);
-    }
 
-    public function state_action(Request $request)
-    {
-        dd($request);
+        return redirect()->route('select-state');
     }
 
     public function select_state()
     {
         $data['states'] = State::all();
+        
         return view('auth.select-state', $data);
     }
 
-    public function select_state_action(Request $request)
+    public function select_state_action(SelectStateRequest $request)
     {
         $data = $request->only(['state']);
         $stateRegister = State::find($data['state']);
@@ -51,6 +48,21 @@ class AuthController extends Controller
         $user = Auth::user();
         $user->state_id = $stateRegister->id;
         $user->save();
+
+        return redirect()->route('home');
+    }
+
+    public function login_action(LoginRequest $request)
+    {   
+        $loginData = $request->only(['email', 'password']);
+
+        if (!Auth::attempt($loginData)) {
+            $data['message'] = 'Usuário ou senha inválidos';
+            $data['email'] = $loginData['email'];
+
+            return view('auth.login', $data);
+        }
+
         return redirect()->route('home');
     }
 }
