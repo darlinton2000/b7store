@@ -9,7 +9,6 @@ use App\Models\State;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller
 {
@@ -18,7 +17,7 @@ class AuthController extends Controller
      *
      * @return view
      */
-    public function register() 
+    public function register()
     {
         return view('auth.register');
     }
@@ -48,7 +47,7 @@ class AuthController extends Controller
     public function select_state()
     {
         $data['states'] = State::all();
-        
+
         return view('auth.select-state', $data);
     }
 
@@ -81,7 +80,7 @@ class AuthController extends Controller
      * @return void
      */
     public function login_action(LoginRequest $request)
-    {   
+    {
         $loginData = $request->only(['email', 'password']);
 
         if (!Auth::attempt($loginData)) {
