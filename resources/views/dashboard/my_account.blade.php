@@ -37,7 +37,9 @@
         </div>
         <div class="profile-area">
             <h3 class="profile-title">Meu perfil</h3>
-            <form>
+            <form method="POST" action="{{ route('my_account_action') }}">
+                @csrf
+
                 <div class="name-area">
                     <div class="name-label">Nome</div>
                     <input type="text" name="name" placeholder="Digite o seu nome" value="{{ $user->name }}"/>
@@ -54,7 +56,7 @@
                 </div>
                 <div class="state-area">
                     <div class="state-label">Selecione o seu estado</div>
-                    <select class="states" name="state">
+                    <select class="states" name="state_id">
                         @foreach ($states as $state)
                             <option value="{{ $state->id }}" {{ $state->id === $user->state_id ? 'selected' : '' }}>{{ $state->name }}</option>
                         @endforeach
@@ -63,7 +65,7 @@
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class="save-button">Salvar</button>
+                <input type="submit" class="save-button" value="Salvar" />
             </form>
         </div>
     </div>

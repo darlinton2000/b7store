@@ -23,14 +23,12 @@
                     <p class="error">{{ $message }}</p>
                 @endif
                 @csrf
-                
+
                 <div class="email-area">
                     <div class="email-label">E-mail</div>
-                    <input type="email" required name="email" placeholder="Digite o seu e-mail" value={{ $email ?? '' }} />
+                    <input type="email" required name="email" placeholder="Digite o seu e-mail" />
                     @error('email')
-                        <div class="error">
-                            {{ $message }}
-                        </div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="password-area">
@@ -40,9 +38,7 @@
                     </div>
                     <x-form.password-input name="password" placeholder="Digite sua senha" id="password" required />
                     @error('password')
-                        <div class="error">
-                            {{ $message }}
-                        </div>
+                        <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
                 <button class="login-button">Entrar</button>
