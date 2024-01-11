@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\SelectStateRequest;
 use App\Models\State;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -91,5 +92,17 @@ class AuthController extends Controller
         }
 
         return redirect()->route('home');
+    }
+
+
+    /**
+     * Desloga o usuário autênticado
+     *
+     * @return RedirectResponse
+     */
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

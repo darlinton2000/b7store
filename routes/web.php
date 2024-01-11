@@ -25,14 +25,18 @@ Route::get('/', function () {
     return view('home', $data);
 })->name('home');
 
-Route::get('/select-state', [AuthController::class, 'select_state'])->name('select-state');
-Route::post('/select-state', [AuthController::class, 'select_state_action'])->name('select_state_action');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/select-state', [AuthController::class, 'select_state'])->name('select-state');
+    Route::post('/select-state', [AuthController::class, 'select_state_action'])->name('select_state_action');
 
-/**
- * DASHBOARD
- */
-Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
-Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
+    /**
+     * DASHBOARD
+     */
+    Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
+    Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
 /**
  * AUTH / REGISTER ROUTES

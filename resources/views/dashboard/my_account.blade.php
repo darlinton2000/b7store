@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="sidebar-bottom">
-                <a href="/index.html">
+                <a href="{{ route('logout') }}">
                     <img src="/assets/icons/logoutIcon.png" /> Sair
                 </a>
             </div>
