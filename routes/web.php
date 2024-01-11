@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
      */
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
+    Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

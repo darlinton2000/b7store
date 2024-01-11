@@ -24,4 +24,9 @@ class DashboardController extends Controller
 
         return redirect()->route('my_account')->with('success', 'Perfil atualizado com sucesso');
     }
+
+    public function my_ads()
+    {
+        return view('dashboard.my_ads');
+    }
 }
