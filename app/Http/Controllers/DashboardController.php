@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -27,6 +28,10 @@ class DashboardController extends Controller
 
     public function my_ads()
     {
-        return view('dashboard.my_ads');
+        $user = Auth::user();
+
+        $advertises = $user->advertises;
+
+        return view('dashboard.my_ads', compact('advertises'));
     }
 }
