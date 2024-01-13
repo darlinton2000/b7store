@@ -49,7 +49,7 @@
                             </div>
                             <div
                                 class="ad-image"
-                                style="background-image: url('{{ $ad->image }}')"
+                                style="background-image: url('{{ $ad->images->where('featured', 1)->first()->url }}')"
                             ></div>
                         </div>
                         <div class="ad-title">{{ $ad->title }}</div>
