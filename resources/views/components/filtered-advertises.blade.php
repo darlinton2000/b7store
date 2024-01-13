@@ -28,7 +28,9 @@
     <div class="ads-title">Anúncios recentes</div>
     <div class="ads-area">
         @foreach ($advertisesList as $ad)
-            <x-simple-advertises href="{{ $ad['href'] }}" bgImage="{{ $ad['image'] }}" title="{{ $ad['title'] }}" price="{{ $ad['price'] }}" />
+            <!-- Basic Ad -->
+            <x-basic-ad :ad="$ad" />
+            <!-- Basic Ad -->
         @endforeach
     </div>
 </div>

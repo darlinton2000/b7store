@@ -1,6 +1,6 @@
 <header>
     <div class="header-area">
-        <a href="" class="header-area-left">B7Store</a>
+        <a href="{{ route('home') }}" class="header-area-left">B7Store</a>
         <div class="header-area-right">
             @if (Auth::check())
                 <a href="{{ route('my_account') }}" class="my-account">
