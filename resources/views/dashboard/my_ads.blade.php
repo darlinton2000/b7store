@@ -36,11 +36,15 @@
         <div class="myAds-area">
             <h3 class="myAds-title">Meus Anúncios</h3>
             <div class="myAds-ads-area">
-                @foreach($advertises as $ad)
-                    <!-- Basic Ad -->
-                    <x-basic-ad :ad="$ad" :canEdit="true" />
-                    <!-- Basic Ad -->
-                @endforeach
+                @if($advertises->count() > 0)
+                    @foreach($advertises as $ad)
+                        <!-- Basic Ad -->
+                        <x-basic-ad :ad="$ad" :canEdit="true" />
+                        <!-- Basic Ad -->
+                    @endforeach
+                @else
+                    <span>Você ainda não possui anúncios</span>
+                @endif
             </div>
         </div>
     </div>

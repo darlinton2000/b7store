@@ -33,7 +33,7 @@
         @endif
         <div
             class="ad-image"
-            style="background-image: url('{{ $ad->images->where('featured', 1)->first()->url }}')"
+            style="background-image: url('{{ $ad->images->where('featured', 1)->first()->url ?? 'https://placehold.it/300x300' }}')"
         ></div>
     </div>
     <div class="ad-title">{{ $ad->title }}</div>
