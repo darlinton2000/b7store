@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
+    public function show(string $slug)
+    {
+        $ad = Advertise::where('slug', $slug)->first();
+        $ad->views++;
+        $ad->save();
+
+        return view('single-ad', compact('ad'));
+    }
+
     /**
      * Deleta o anúncio
      *
