@@ -23,7 +23,6 @@ class AdController extends Controller
             return redirect()->route('home');
         }
 
-        AdvertiseImage::where('advertise_id', $ad->id)->delete();
         $ad->delete();
         return redirect()->back();
     }
