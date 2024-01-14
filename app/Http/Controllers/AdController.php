@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Advertise;
+use App\Models\AdvertiseImage;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
     /**
      * Deleta o anúncio
-     * @param Request $request
+     *
      * @param int $id
-     * @return void
+     * @return RedirectResponse
      */
-    public function delete(Request $request, int $id)
+    public function delete(int $id): RedirectResponse
     {
-        dd($id);
+        $ad = Advertise::where('id', $id)->where('user_id', Auth::user()->id)->first();
+
+        if (!$ad) {
+            return redirect()->route('home');
+        }
+
+        AdvertiseImage::where('advertise_id', $ad->id)->delete();
+        $ad->delete();
+        return redirect()->back();
     }
 }
