@@ -27,30 +27,11 @@
 
 <main>
     <div class="ad-area">
-        <div class="ad-area-left">
-            <div
-                class="main-photo"
-                style="background-image: url('/assets/adFusca/fusca.png')"
-            ></div>
-            <div class="secundary-photos">
-                <div
-                    class="secundary-image"
-                    style="background-image: url('/assets/adFusca/fusca2.png')"
-                ></div>
-                <div
-                    class="secundary-image"
-                    style="background-image: url('/assets/adFusca/fusca3.png')"
-                ></div>
-                <div
-                    class="secundary-image"
-                    style="background-image: url('/assets/adFusca/fusca4.png')"
-                ></div>
-                <div
-                    class="secundary-image"
-                    style="background-image: url('/assets/adFusca/fusca5.png')"
-                ></div>
-            </div>
-        </div>
+
+        <!-- Livewire Gallery -->
+        <livewire:gallery :images="$ad->images" />
+        <!-- Livewire Gallery -->
+
         <div class="ad-area-right">
             <div class="categories-state">{{ $ad->state->name }} / {{ $ad->category->name }}</div>
             <div class="ad-page-title">{{ $ad->title }}</div>
