@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertise;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
     /**
-     * Retorna a view do anúncio
+     * Retorna a view do anúncio, se não existir retorna para a rota home
      *
      * @param string $slug
-     * @return View
      */
-    public function show(string $slug): View
+    public function show(string $slug)
     {
         $ad = Advertise::where('slug', $slug)->first();
+
+        if (!$ad) {
+            return redirect()->route('home');
+        }
+
         $ad->views++;
         $ad->save();
 
