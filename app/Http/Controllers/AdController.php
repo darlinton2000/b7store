@@ -3,12 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertise;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AdController extends Controller
 {
     /**
+     * Retorna a view da listagem dos anúncios
+     *
+     */
+    public function list()
+    {
+        return view('list');
+    }
+
+     /**
      * Retorna a view do anúncio, se não existir retorna para a rota home
      *
      * @param string $slug

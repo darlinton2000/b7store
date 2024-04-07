@@ -25,6 +25,7 @@ Route::get('/', function () {
     return view('home', $data);
 })->name('home');
 
+Route::get('/list', [AdController::class, 'list'])->name('ad.list');
 Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad.show');
 
 Route::middleware(['auth'])->group(function () {
