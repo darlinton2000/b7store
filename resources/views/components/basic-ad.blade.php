@@ -16,7 +16,7 @@
     }
 </style>
 
-<div class="my-ad-item">
+<a href="{{ route('ad.show', $ad->slug) }}" class="my-ad-item" style="text-decoration: none">
     @if(empty($canEdit) && Auth::user() && $ad->user_id === Auth::user()->id)
         <span class="pill my-ad-pill">Meu Anúncio</span>
     @endif
@@ -38,4 +38,4 @@
     </div>
     <div class="ad-title">{{ $ad->title }}</div>
     <div class="ad-price">R$ {{ $ad->price_formatted }}</div>
-</div>
+</a>

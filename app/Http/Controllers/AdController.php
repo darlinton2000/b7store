@@ -25,7 +25,10 @@ class AdController extends Controller
 
         $relatedAds = Advertise::where('category_id', $ad->category_id)
             ->where('state_id', $ad->state_id)
+            ->where('id', '<>', $ad->id)
             ->with('images')
+            ->orderBy('created_at', 'desc')
+            ->orderBy('views', 'desc')
             ->limit(4)
             ->get();
 

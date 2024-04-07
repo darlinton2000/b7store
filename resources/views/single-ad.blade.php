@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adPageStyle.css" />
+    <link rel="stylesheet" href="/assets/myAdsStyle.css" />
     <title>B7Store</title>
 
     <script>
@@ -59,13 +60,13 @@
     <div class="ads">
         <div class="ads-title">Anúncios relacionados</div>
         <div class="ads-area">
-            @foreach($relatedAds as $ad)
-                <a href="{{ route('ad.show', $ad->slug) }}" class="ad-item">
-                    <div class="ad-image" style="background-image: url('{{ $ad->images->first()->url ?? 'http://placehold.it/300x300' }}')"></div>
-                    <div class="ad-title">{{ $ad['title'] }}</div>
-                    <div class="ad-price">R$ {{ $ad['price'] }}</div>
-                </a>
-            @endforeach
+            @forelse($relatedAds as $ad)
+                <!-- Basic Ad -->
+                <x-basic-ad :ad="$ad" />
+                <!-- Basic Ad -->
+            @empty
+                <span>Não há anúncios relacionados para exibir</span>
+            @endforelse
         </div>
     </div>
 </main>
