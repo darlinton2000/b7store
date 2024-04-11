@@ -44,5 +44,9 @@
                 <span>Não há anúncios recentes para exibir</span>
             @endforelse
         </div>
+
+        <div>
+            {{ $filteredAds->links() }}
+        </div>
     </div>
 </main>
