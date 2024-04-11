@@ -2,6 +2,7 @@
     <div class="hero-area">
         <div class="search-area-adsList">
             <input
+                wire:model.live="textSearch"
                 class="search-text"
                 type="text"
                 placeholder="Estou procurando por..."
@@ -9,24 +10,20 @@
             <div class="options-area">
                 <div class="categories-area">
                     <p>Categoria</p>
-                    <select class="categories-options">
+                    <select wire:model.live="categorySelected" class="categories-options">
                         <option selected hidden disabled value="">Todas</option>
-                        <option value="cars">Carros</option>
-                        <option value="eletronics">Eletrônicos</option>
-                        <option value="clothes">Roupas</option>
-                        <option value="sports">Esporte</option>
-                        <option value="babies">Bebês</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="states-area">
                     <p>Estados</p>
-                    <select class="states">
+                    <select wire:model.live="stateSelected" class="states">
                         <option selected hidden disabled value="">Todos</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="SP">São Paulo</option>
+                        @foreach($states as $state)
+                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <button class="search-mobile-button">Procurar</button>
