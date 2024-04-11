@@ -18,7 +18,21 @@ class AdList extends Component
 
     public function render()
     {
-        $this->filteredAds = Advertise::all();
+        $query = Advertise::query();
+
+        if ($this->categorySelected) {
+            $query->where('category_id', $this->categorySelected);
+        }
+
+        if ($this->stateSelected) {
+            $query->where('state_id', $this->stateSelected);
+        }
+
+        if ($this->textSearch) {
+            $query->where('title', 'like', '%' . $this->textSearch . '%');
+        }
+
+        $this->filteredAds = $query->get();
 
         return view('livewire.ad-list');
     }
