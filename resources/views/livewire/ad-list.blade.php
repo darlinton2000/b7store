@@ -45,7 +45,7 @@
             @endforelse
         </div>
 
-        <div>
+        <div class="mt-8">
             {{ $filteredAds->links() }}
         </div>
     </div>

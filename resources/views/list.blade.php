@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/adsListStyle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>B7Store - Anúncios</title>
 </head>
 
