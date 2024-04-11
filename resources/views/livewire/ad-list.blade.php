@@ -2,7 +2,7 @@
     <div class="hero-area">
         <div class="search-area-adsList">
             <input
-                wire:model.live="textSearch"
+                wire:model.live.debounce.1000ms="textSearch"
                 class="search-text"
                 type="text"
                 placeholder="Estou procurando por..."
