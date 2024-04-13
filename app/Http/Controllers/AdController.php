@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertise;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class AdController extends Controller
 {
@@ -63,5 +62,22 @@ class AdController extends Controller
 
         $ad->delete();
         return redirect()->back();
+    }
+
+    public function category(Request $request, string $slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+
+        if (!$category) {
+            return redirect()->route('home');
+        }
+
+        $filteredAds = Advertise::where('category_id', $category->id)
+            ->with('images')
+            ->orderBy('created_at', 'desc')
+            ->paginate(4);
+
+        return view('category-list', compact('filteredAds', 'category'));
+
     }
 }

@@ -26,6 +26,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/list', [AdController::class, 'list'])->name('ad.list');
+Route::get('/category/{slug}', [AdController::class, 'category'])->name('ad.category');
 Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad.show');
 
 Route::middleware(['auth'])->group(function () {
