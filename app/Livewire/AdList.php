@@ -17,6 +17,11 @@ class AdList extends Component
     public $categorySelected;
     public $stateSelected;
     public $textSearch;
+    protected $queryString = [
+        'textSearch' => ['as' => 's'],
+        'categorySelected' => ['as' => 'c'],
+        'stateSelected' => ['as' => 'st']
+    ];
 
     public function render()
     {
