@@ -9,7 +9,7 @@
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
-/* 
+/*
 * Header
 */
 header {
@@ -82,11 +82,11 @@ header {
   color: #fff;
   width: 130px;
 }
-/* 
+/*
 * /Header
 */
 
-/* 
+/*
 * Main
 */
 main {
@@ -94,7 +94,7 @@ main {
   margin: auto;
   min-height: calc(100vh-var(--footerHeight));
 }
-/* 
+/*
 * Hero Area
 */
 .hero-area {
@@ -161,11 +161,11 @@ main {
   border: 0;
   cursor: pointer;
 }
-/* 
+/*
 * /Hero Area
 */
 
-/* 
+/*
 * Categories Area
 */
 .categories-area {
@@ -186,7 +186,7 @@ main {
 }
 .buttons .cars,
 .buttons .eletronics,
-.buttons .clothes,
+.buttons .category_button,
 .buttons .sports,
 .buttons .babies {
   width: 17%;
@@ -206,8 +206,11 @@ main {
   line-height: normal;
   border: 0;
 }
+.decoration-none {
+    text-decoration: none!important;
+}
 .buttons .eletronics,
-.buttons .clothes,
+.buttons .category_button,
 .buttons .sports,
 .buttons .babies {
   background-color: #f5f7ff;
@@ -215,16 +218,16 @@ main {
 }
 .buttons .cars img,
 .buttons .eletronics img,
-.buttons .clothes img,
+.buttons .category_button img,
 .buttons .sports img,
 .buttons .babies img {
   margin-right: 8px;
 }
-/* 
+/*
 * /Categories Area
 */
 
-/* 
+/*
 * Ads
 */
 
@@ -282,15 +285,15 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* 
+/*
 * /Ads
 */
 
-/* 
+/*
 * /Main
 */
 
-/* 
+/*
 * Footer
 */
 footer {
@@ -317,7 +320,7 @@ footer span:last-child {
   font-weight: 700;
   line-height: normal;
 }
-/* 
+/*
 * Footer
 */
 
@@ -394,7 +397,7 @@ footer span:last-child {
   }
   .buttons .cars,
   .buttons .eletronics,
-  .buttons .clothes,
+  .buttons .category_button,
   .buttons .sports,
   .buttons .babies {
     width: 100%;
@@ -451,7 +454,7 @@ footer span:last-child {
   }
   .buttons .cars,
   .buttons .eletronics,
-  .buttons .clothes,
+  .buttons .category_button,
   .buttons .sports,
   .buttons .babies {
     width: 158px;

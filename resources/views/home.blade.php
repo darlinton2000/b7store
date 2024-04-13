@@ -19,13 +19,17 @@
     <!-- Header -->
 
     <main>
-        <!-- Start Hero -->
+        <!-- Hero -->
         <x-hero />
-        <!-- End Hero -->
+        <!-- Hero -->
 
-        <!-- Start Filtered Advertises -->
+        <!-- Categories -->
+        <livewire:categories-list />
+        <!-- Categories -->
+
+        <!-- Filtered Advertises -->
         <x-filtered-advertises />
-        <!-- End Filtered Advertises -->
+        <!-- Filtered Advertises -->
     </main>
 
     <!-- Footer -->
