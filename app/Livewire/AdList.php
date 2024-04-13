@@ -35,7 +35,7 @@ class AdList extends Component
         }
 
         return view('livewire.ad-list', [
-            'filteredAds' => $query->paginate(10)
+            'filteredAds' => $query->orderBy('created_at', 'desc')->paginate(4)
         ]);
     }
 

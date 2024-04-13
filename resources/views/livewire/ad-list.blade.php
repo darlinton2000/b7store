@@ -35,11 +35,9 @@
         <div class="ads-title">Anúncios recentes</div>
         <div class="ads-area">
             @forelse($filteredAds as $ad)
-                <div class="ad-item">
-                    <div class="ad-image" style="background-image: url('{{ $ad->images[0]->url ?? 'https://placehold.it/150x150' }}')"></div>
-                    <div class="ad-title">{{ $ad->title }}</div>
-                    <div class="ad-price">R$ {{ $ad->price_formatted }}</div>
-                </div>
+                <!-- Basic Ad -->
+                <x-basic-ad :ad="$ad" />
+                <!-- Basic Ad -->
             @empty
                 <span>Não há anúncios recentes para exibir</span>
             @endforelse
