@@ -8,7 +8,7 @@
                     <div class="area-left-up-img">
                         <img src="/assets/icons/imageIcon.png" />
                         <div class="area-left-up-img-text">
-                            <span>Clique aqui</span> para enviar uma imagem
+                            <span onclick="openFileDialog();">Clique aqui</span> para enviar uma imagem
                         </div>
                     </div>
                 </div>
@@ -32,11 +32,14 @@
             </div>
             <div class="newAd-area-right">
                 <form class="newAd-form" wire:submit="save">
+                    <input id="file-upload" style="visibility: hidden;" type="file"/>
+
                     <div class="title-area">
                         <div class="title-label">Título do anúncio</div>
                         @error('title') <span class="form-error">{{ $message }}</span> @enderror
                         <input wire:model="title" type="text" placeholder="Digite o título do anúncio" />
                     </div>
+
                     <div class="value-area">
                         <div class="value-label">
                             <div class="value-area-text">Valor</div>
@@ -52,6 +55,7 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="newAd-categories-area">
                         <div class="newAd-categories-label">Categorias</div>
                         @error('category_id') <span class="form-error">{{ $message }}</span> @enderror
@@ -64,6 +68,7 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="description-area">
                         <div class="description-label">Descrição</div>
                         @error('description') <span class="form-error">{{ $message }}</span> @enderror
@@ -78,4 +83,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function openFileDialog() {
+            document.getElementById('file-upload').click();
+        }
+    </script>
 </main>
