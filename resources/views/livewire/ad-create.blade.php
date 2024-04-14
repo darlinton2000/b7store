@@ -32,7 +32,7 @@
             </div>
             <div class="newAd-area-right">
                 <form class="newAd-form" wire:submit="save">
-                    <input id="file-upload" style="visibility: hidden;" type="file"/>
+                    <input id="file-upload" style="visibility: hidden;" type="file" wire:model="photos" multiple/>
 
                     <div class="title-area">
                         <div class="title-label">Título do anúncio</div>
