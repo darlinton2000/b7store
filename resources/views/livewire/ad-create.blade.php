@@ -34,15 +34,18 @@
                 <form class="newAd-form" wire:submit="save">
                     <div class="title-area">
                         <div class="title-label">Título do anúncio</div>
+                        @error('title') <span class="form-error">{{ $message }}</span> @enderror
                         <input wire:model="title" type="text" placeholder="Digite o título do anúncio" />
                     </div>
                     <div class="value-area">
                         <div class="value-label">
                             <div class="value-area-text">Valor</div>
+                            @error('price') <span class="form-error">{{ $message }}</span> @enderror
                             <input wire:model="price" type="text" placeholder="Digite o valor" />
                         </div>
                         <div class="negotiable-area">
                             <div class="negotiable-label">Negociável?</div>
+                            @error('negotiable') <span class="form-error">{{ $message }}</span> @enderror
                             <select wire:model="negotiable">
                                 <option value="0" selected>Não</option>
                                 <option value="1">Sim</option>
@@ -51,6 +54,7 @@
                     </div>
                     <div class="newAd-categories-area">
                         <div class="newAd-categories-label">Categorias</div>
+                        @error('category_id') <span class="form-error">{{ $message }}</span> @enderror
                         <select wire:model="category_id" class="newAd-categories" required>
                             <option selected>
                                 Selecione uma categoria
@@ -62,6 +66,7 @@
                     </div>
                     <div class="description-area">
                         <div class="description-label">Descrição</div>
+                        @error('description') <span class="form-error">{{ $message }}</span> @enderror
                         <textarea
                             wire:model="description"
                             class="description-text"

@@ -10,7 +10,16 @@ class AdCreate extends Component
     public $title;
     public $description;
     public $price;
+    public $negotiable;
     public $category_id;
+
+    protected $rules = [
+        'title' => 'required|min:8|max:255',
+        'price' => 'required|numeric',
+        'negotiable' => 'required|boolean',
+        'description' => 'required|min:8|max:255',
+        'category_id' => 'required|exists:categories,id'
+    ];
 
     public function render()
     {
@@ -21,6 +30,8 @@ class AdCreate extends Component
 
     public function save()
     {
-        dd($this->category_id);
+        $this->validate();
+
+        return 'saved';
     }
 }

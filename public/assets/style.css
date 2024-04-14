@@ -500,3 +500,12 @@ footer span:last-child {
     margin-top: 30px;
   }
 }
+
+.form-error {
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+    margin-left: 5px;
+}
