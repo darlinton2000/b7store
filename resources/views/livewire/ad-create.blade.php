@@ -14,21 +14,16 @@
                     </div>
                 </div>
                 <div class="area-left-bottom">
-                    <div class="smallpics">
-                        <img src="/assets/icons/imageSmallIcon.png" />
-                    </div>
-                    <div class="smallpics">
-                        <img src="/assets/icons/imageSmallIcon.png" />
-                    </div>
-                    <div class="smallpics">
-                        <img src="/assets/icons/imageSmallIcon.png" />
-                    </div>
-                    <div class="smallpics">
-                        <img src="/assets/icons/imageSmallIcon.png" />
-                    </div>
-                    <div class="smallpics">
-                        <img src="/assets/icons/imageSmallIcon.png" />
-                    </div>
+                    @foreach($photos as $photo)
+                        <div class="smallpics">
+                            <img src="{{ $photo->temporaryUrl() }}" />
+                        </div>
+                    @endforeach
+                    @for ($i = count($photos); $i < 5; $i++)
+                        <div class="smallpics">
+                            <img src="/assets/icons/imageSmallIcon.png" />
+                        </div>
+                    @endfor
                 </div>
             </div>
             <div class="newAd-area-right">
