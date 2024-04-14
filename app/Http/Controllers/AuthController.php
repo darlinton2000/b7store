@@ -71,7 +71,7 @@ class AuthController extends Controller
         $user->state_id = $stateRegister->id;
         $user->save();
 
-        return redirect()->route('home');
+        return redirect()->route('my_account');
     }
 
     /**
@@ -91,7 +91,7 @@ class AuthController extends Controller
             return view('auth.login', $data);
         }
 
-        return redirect()->route('home');
+        return redirect()->route('my_account');
     }
 
     /**

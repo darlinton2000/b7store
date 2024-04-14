@@ -16,41 +16,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/**
- * PAGES
- */
 Route::get('/', function () {
     $data['categories'] = [];
     $data['states'] = [];
     return view('home', $data);
 })->name('home');
 
+// AdController
 Route::get('/list', [AdController::class, 'list'])->name('ad.list');
 Route::get('/category/{slug}', [AdController::class, 'category'])->name('ad.category');
 Route::get('/ad/{slug}', [AdController::class, 'show'])->name('ad.show');
 
 Route::middleware(['auth'])->group(function () {
+    // AuthController
     Route::get('/select-state', [AuthController::class, 'select_state'])->name('select-state');
     Route::post('/select-state', [AuthController::class, 'select_state_action'])->name('select_state_action');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    /**
-     * DASHBOARD
-     */
+    // DashboardController
     Route::get('/dashboard/my-account', [DashboardController::class, 'my_account'])->name('my_account');
     Route::post('/dashboard/my-account', [DashboardController::class, 'my_account_action'])->name('my_account_action');
     Route::get('/dashboard/my-ads', [DashboardController::class, 'my_ads'])->name('my_ads');
 
+    // AdController
     Route::get('/dashboard/ad/delete/{id}', [AdController::class, 'delete'])->name('ad.delete');
-
-    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard/advertise', [AdController::class, 'create'])->name('ad.create');
 });
 
-/**
- * AUTH / REGISTER ROUTES
- */
+// AuthController
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register_action'])->name('register_action');
-
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');

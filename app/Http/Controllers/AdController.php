@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class AdController extends Controller
 {
@@ -79,5 +80,15 @@ class AdController extends Controller
 
         return view('category-list', compact('filteredAds', 'category'));
 
+    }
+
+    /**
+     * Cria um anúncio
+     *
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('dashboard.ad_create');
     }
 }
